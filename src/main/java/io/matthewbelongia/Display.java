@@ -78,6 +78,7 @@ public class Display extends Calculator {
         while(displayOn) {
 
             //System.out.println(actualValue);
+            printNC();
             chooseFunction();
 
 
@@ -200,6 +201,7 @@ public class Display extends Calculator {
             errorDisplay = "ERROR: 'clear'";
             errorOn = true;
             errorScreen();
+            printNC();
             chooseFunction();
         }
         runFunction();
@@ -444,7 +446,7 @@ public class Display extends Calculator {
     public void errorScreen(){
 
         while(errorOn){
-            System.out.println(errorDisplay);
+            printErrorNC();
             Scanner errorScanner = new Scanner(System.in);
             String errorInput = errorScanner.next();
             errorInput = errorInput.toLowerCase();
@@ -557,8 +559,8 @@ public void printNC(){
     System.out.println(
                     " _______________________________\n" +
                     "|  ____________________________  |\n" +
-                    "| |Type one of the             | |\n" +
-                    "| |commands below:             | |\n" +
+                    "| | " + displayValue + "\n" +
+                    "| |                            | |\n" +
                     "| |____________________________| |\n" +
                     "|  _______________  _________  | |\n" +
                     "| | CLR| M+ | MC | | +  |1/S | | |\n" +
@@ -576,4 +578,27 @@ public void printNC(){
                     "|________________________________|\n" +
                     "\n");
 }
+public void printErrorNC(){
+        System.out.println(
+                " _______________________________\n" +
+                        "|  ____________________________  |\n" +
+                        "| | " + errorDisplay + "\n" +
+                        "| |                            | |\n" +
+                        "| |____________________________| |\n" +
+                        "|  _______________  _________  | |\n" +
+                        "| | CLR| M+ | MC | | +  |1/S | | |\n" +
+                        "| |____|____|____| |____|____| | |\n" +
+                        "| | TAN| MRC| INV| | -  |1/C | | |\n" +
+                        "| |____|____|____| |____|____| | |\n" +
+                        "| | COS| ^2 | 1/x| | *  |1/T | | |\n" +
+                        "| |____|____|____| |____|____| | |\n" +
+                        "| | SIN| ^? | SQT| | /  |FAC | | |\n" +
+                        "| |____|____|____| |____|____| | |\n" +
+                        "| | :( | APP| LOG| | // |SW+ | | |\n" +
+                        "| |____|____|____| |____|____| | |\n" +
+                        "| | E^X| 10^| NLG| | :D |SWC | | |\n" +
+                        "| |____|____|____| |____|____| | |\n" +
+                        "|________________________________|\n" +
+                        "\n");
+    }
 }
